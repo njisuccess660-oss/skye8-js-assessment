@@ -276,7 +276,7 @@ walk through your task 5 aggregation logic live.
 
 ## Live application
 
-`<add your verified hosted URL here before opening the pull request>`
+https://animated-douhua-7e9e14.netlify.app/
 
 ---
 
