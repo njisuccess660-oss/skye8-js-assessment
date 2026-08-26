@@ -39,21 +39,24 @@ function applySearch(products, term) {
 // Return a new array. An empty category or price value means "all".
 function applyFilters(products, category, priceBand) {
   let filtered = products;
-  if(category && category !== "all" && category !== ""){
+  if(category && category !== "all" && category !== "" && category !== "All categories"){
     filtered = filtered.filter(function(product){
       return product.category === category;
     });
   }
-  if(priceBand && priceBand !== "all" && priceBand !== ""){
+  if(priceBand && priceBand !== "all" && priceBand !== "" && priceBand !== "All prices"){
     filtered = filtered.filter(function(product){
-      if(priceBand === "under-50000"){
+      if(priceBand === "under-50000" || priceBand.includes("under")){
         return product.price < 50000;
       }
-      if(priceBand === "50000-250000"){
-        return product.price >=50000 && product.price <=250000;
+      if(priceBand === "50000-150000"){
+        return product.price >=50000 && product.price <=150000;
       }
-      if(priceBand === "over-250000"){
-        return product.price > 250000;
+        if(priceBand === "150000-500000"){
+        return product.price >=150000 && product.price <=500000;
+      }
+      if(priceBand === "over-500000" || priceBand.includes("over")){
+        return product.price > 500000;
       }
       return true;
     });
